@@ -1,20 +1,30 @@
-# create-svelte
+# Micro-frontends with SvelteKit
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+Sample POC application to develop Micro-frontends using SvelteKit.
 
-## Creating a project
+## Application Shell
 
-If you're seeing this, you've probably already done this step. Congrats!
+This repository contains the code for the application shell. Sub-modules can be added to the modules folder inside the routes folder. The modules folder is added to the .gitignore so that any changes to the modules will be ignored in the application shell repository.
+
+## Creating a module/working with module
+
+Clone a repository associated with any sub module into the modules folder as in the following.
 
 ```bash
-# create a new project in the current directory
-npm init svelte@next
+mkdir module-first
+cd module-first
+git clone https://github.com/gvkumarreddy/svelte-micro-frontends-module-first.git .
 
-# create a new project in my-app
-npm init svelte@next my-app
 ```
 
-> Note: the `@next` is temporary
+> Note: the `module-first` is a module name
+
+The above sample module uses a common component by name `Draggable` from the `app-shell` repository (The current repository).
+
+There is a navigation link added to the above module in the file `src/lib/Header/index.svelte`
+
+With the simple approach as above, we can create as many modules as required and the individual teams can work in their respective sub-modules.
+
 
 ## Developing
 
@@ -36,3 +46,7 @@ npm run build
 ```
 
 > You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+
+## Feedback
+
+Any suggestions or feedback? Email me at `gvkumar.reddy@gmail.com`
